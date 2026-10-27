@@ -1,56 +1,145 @@
-# Welcome to your Expo app 👋
+# Trovo
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Trovo is a modern mobile logistics and delivery experience built with Expo and React Native. It helps users book shipments, choose delivery options, track parcels in real time, and manage account details such as addresses, payment methods, and receipts.
 
-## Get started
+The app is structured as a polished delivery companion for both personal and business use, with a strong focus on a clean customer journey, fast status updates, and a scalable route-based architecture.
 
-1. Install dependencies
+## Overview
 
-   ```bash
-   npm install
-   ```
+Trovo includes:
 
-2. Start the app
+- Welcome and authentication flow
+- Home dashboard with tracking lookup and quick shipment actions
+- Shipping flow for pickup, destination, package size, weight, and service tier
+- Delivery pricing and option selection
+- Live tracking screen with progress updates and courier contact action
+- Shipment history and details
+- Profile management, saved addresses, payment methods, notifications, and receipts
 
-   ```bash
-   npx expo start
-   ```
+## Tech stack
 
-In the output, you'll find options to open the app in a
+- React Native
+- Expo Router
+- Expo SDK 58
+- TypeScript
+- NativeWind for styling
+- Expo Image and SVG assets
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Project structure
 
-You can start developing by editing the files inside the **src/app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```text
+src/
+├── app/
+│   ├── (auth)/               # Sign-in and verification screens
+│   ├── (tabs)/               # Main app tabs: Home, Ship, Shipments, Profile
+│   ├── track/                # Tracking routes and delivery completion screens
+│   └── _layout.tsx           # Root navigation setup
+├── components/               # Shared UI components
+├── constants/                # Design tokens and styling values
+├── lib/                      # Booking, session, shipment, and profile logic
+├── global.css                # Global styles and Tailwind base layers
+└── ...
 ```
 
-This command will move the starter code to the **example** directory and create a blank **src/app** directory where you can start developing.
+## Key features
 
-### Other setup steps
+### Shipment booking flow
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+Users can:
 
-## Learn more
+- Choose a pickup and drop-off location
+- Select package size and weight
+- Choose service speed, including same-day, standard, and express
+- Review the final booking and complete the shipping journey
 
-To learn more about developing your project with Expo, look at the following resources:
+### Tracking experience
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+The app includes a dedicated tracking screen that:
 
-## Join the community
+- Displays shipment IDs and route information
+- Simulates courier movement on a route map
+- Shows progress stages from booking to delivery
+- Lets users contact the courier directly
+- Redirects to a delivered state when the shipment is completed
 
-Join our community of developers creating universal apps.
+### Profile and account management
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Users can manage:
+
+- Saved addresses
+- Payment methods
+- Notifications
+- Receipts
+- Personal account details
+
+## Getting started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or Bun
+- Expo CLI via the local project dependencies
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+Or with Bun:
+
+```bash
+bun install
+```
+
+### Start the app
+
+```bash
+npx expo start
+```
+
+Then run one of the following:
+
+```bash
+npm run android
+npm run ios
+npm run web
+```
+
+## Available scripts
+
+```bash
+npm start
+npm run android
+npm run ios
+npm run web
+npm run lint
+```
+
+## Development notes
+
+This project currently uses mocked or local-state data for the shipping and session flows, which makes it ideal as a mobile prototype or a foundation for integrating a real backend API. The structure is designed to support a future connection to services for:
+
+- authentication
+- shipment creation
+- pricing and quote calculations
+- parcel lifecycle status updates
+- payment processing
+- notifications and receipt generation
+
+## App flow
+
+1. User opens the app and completes onboarding or sign-in
+2. User searches for an existing shipment or creates a new one
+3. Shipment details are collected and delivery options are shown
+4. The parcel progresses through the booking and transit lifecycle
+5. Users monitor status and complete the delivery journey from the tracking screen
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contributing
+
+Contributions are welcome. If you plan to extend the app, consider keeping the screen structure consistent with the existing Expo Router layout and reusable design tokens.
+

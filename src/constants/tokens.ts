@@ -1,0 +1,37 @@
+export const tokens = {
+  color: {
+    bg: "#F4F6F8",
+    surface: "#FFFFFF",
+    text: "#12151A",
+    textMuted: "#6B7280",
+    accent: "#208AEF",
+    accentContrast: "#FFFFFF",
+    success: "#1F9D55",
+    error: "#D64545",
+    border: "#E5E7EB",
+  },
+  font: {
+    display: 34,
+    title: 24,
+    section: 17,
+    body: 16,
+    caption: 13,
+  },
+  space: {
+    4: 4,
+    8: 8,
+    12: 12,
+    16: 16,
+    20: 20,
+    24: 24,
+    32: 32,
+    48: 48,
+  },
+  radius: {
+    input: 12,
+    card: 20,
+    sheet: 28,
+    pill: 999,
+  },
+  shadow: "0 8px 24px rgba(0, 0, 0, 0.08)",
+} as const;
